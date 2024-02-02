@@ -904,6 +904,7 @@ export namespace Prisma {
     gender: $Enums.Gender | null
     profession: string | null
     phoneNumber: string | null
+    createdAt: Date | null
   }
 
   export type UserMaxAggregateOutputType = {
@@ -914,6 +915,7 @@ export namespace Prisma {
     gender: $Enums.Gender | null
     profession: string | null
     phoneNumber: string | null
+    createdAt: Date | null
   }
 
   export type UserCountAggregateOutputType = {
@@ -924,6 +926,7 @@ export namespace Prisma {
     gender: number
     profession: number
     phoneNumber: number
+    createdAt: number
     _all: number
   }
 
@@ -946,6 +949,7 @@ export namespace Prisma {
     gender?: true
     profession?: true
     phoneNumber?: true
+    createdAt?: true
   }
 
   export type UserMaxAggregateInputType = {
@@ -956,6 +960,7 @@ export namespace Prisma {
     gender?: true
     profession?: true
     phoneNumber?: true
+    createdAt?: true
   }
 
   export type UserCountAggregateInputType = {
@@ -966,6 +971,7 @@ export namespace Prisma {
     gender?: true
     profession?: true
     phoneNumber?: true
+    createdAt?: true
     _all?: true
   }
 
@@ -1063,6 +1069,7 @@ export namespace Prisma {
     gender: $Enums.Gender | null
     profession: string | null
     phoneNumber: string | null
+    createdAt: Date
     _count: UserCountAggregateOutputType | null
     _avg: UserAvgAggregateOutputType | null
     _sum: UserSumAggregateOutputType | null
@@ -1092,6 +1099,7 @@ export namespace Prisma {
     gender?: boolean
     profession?: boolean
     phoneNumber?: boolean
+    createdAt?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectScalar = {
@@ -1102,6 +1110,7 @@ export namespace Prisma {
     gender?: boolean
     profession?: boolean
     phoneNumber?: boolean
+    createdAt?: boolean
   }
 
 
@@ -1116,6 +1125,7 @@ export namespace Prisma {
       gender: $Enums.Gender | null
       profession: string | null
       phoneNumber: string | null
+      createdAt: Date
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -1517,6 +1527,7 @@ export namespace Prisma {
     readonly gender: FieldRef<"User", 'Gender'>
     readonly profession: FieldRef<"User", 'String'>
     readonly phoneNumber: FieldRef<"User", 'String'>
+    readonly createdAt: FieldRef<"User", 'DateTime'>
   }
     
 
@@ -1825,7 +1836,8 @@ export namespace Prisma {
     age: 'age',
     gender: 'gender',
     profession: 'profession',
-    phoneNumber: 'phoneNumber'
+    phoneNumber: 'phoneNumber',
+    createdAt: 'createdAt'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -1903,6 +1915,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'DateTime'
+   */
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime[]'
+   */
+  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -1930,6 +1956,7 @@ export namespace Prisma {
     gender?: EnumGenderNullableFilter<"User"> | $Enums.Gender | null
     profession?: StringNullableFilter<"User"> | string | null
     phoneNumber?: StringNullableFilter<"User"> | string | null
+    createdAt?: DateTimeFilter<"User"> | Date | string
   }
 
   export type UserOrderByWithRelationInput = {
@@ -1940,6 +1967,7 @@ export namespace Prisma {
     gender?: SortOrderInput | SortOrder
     profession?: SortOrderInput | SortOrder
     phoneNumber?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -1953,6 +1981,7 @@ export namespace Prisma {
     gender?: EnumGenderNullableFilter<"User"> | $Enums.Gender | null
     profession?: StringNullableFilter<"User"> | string | null
     phoneNumber?: StringNullableFilter<"User"> | string | null
+    createdAt?: DateTimeFilter<"User"> | Date | string
   }, "id">
 
   export type UserOrderByWithAggregationInput = {
@@ -1963,6 +1992,7 @@ export namespace Prisma {
     gender?: SortOrderInput | SortOrder
     profession?: SortOrderInput | SortOrder
     phoneNumber?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _avg?: UserAvgOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -1981,6 +2011,7 @@ export namespace Prisma {
     gender?: EnumGenderNullableWithAggregatesFilter<"User"> | $Enums.Gender | null
     profession?: StringNullableWithAggregatesFilter<"User"> | string | null
     phoneNumber?: StringNullableWithAggregatesFilter<"User"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
 
   export type UserCreateInput = {
@@ -1990,6 +2021,7 @@ export namespace Prisma {
     gender?: $Enums.Gender | null
     profession?: string | null
     phoneNumber?: string | null
+    createdAt?: Date | string
   }
 
   export type UserUncheckedCreateInput = {
@@ -2000,6 +2032,7 @@ export namespace Prisma {
     gender?: $Enums.Gender | null
     profession?: string | null
     phoneNumber?: string | null
+    createdAt?: Date | string
   }
 
   export type UserUpdateInput = {
@@ -2009,6 +2042,7 @@ export namespace Prisma {
     gender?: NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
     profession?: NullableStringFieldUpdateOperationsInput | string | null
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserUncheckedUpdateInput = {
@@ -2019,6 +2053,7 @@ export namespace Prisma {
     gender?: NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
     profession?: NullableStringFieldUpdateOperationsInput | string | null
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserCreateManyInput = {
@@ -2029,6 +2064,7 @@ export namespace Prisma {
     gender?: $Enums.Gender | null
     profession?: string | null
     phoneNumber?: string | null
+    createdAt?: Date | string
   }
 
   export type UserUpdateManyMutationInput = {
@@ -2038,6 +2074,7 @@ export namespace Prisma {
     gender?: NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
     profession?: NullableStringFieldUpdateOperationsInput | string | null
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserUncheckedUpdateManyInput = {
@@ -2048,6 +2085,7 @@ export namespace Prisma {
     gender?: NullableEnumGenderFieldUpdateOperationsInput | $Enums.Gender | null
     profession?: NullableStringFieldUpdateOperationsInput | string | null
     phoneNumber?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -2109,6 +2147,17 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -2122,6 +2171,7 @@ export namespace Prisma {
     gender?: SortOrder
     profession?: SortOrder
     phoneNumber?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type UserAvgOrderByAggregateInput = {
@@ -2137,6 +2187,7 @@ export namespace Prisma {
     gender?: SortOrder
     profession?: SortOrder
     phoneNumber?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
@@ -2147,6 +2198,7 @@ export namespace Prisma {
     gender?: SortOrder
     profession?: SortOrder
     phoneNumber?: SortOrder
+    createdAt?: SortOrder
   }
 
   export type UserSumOrderByAggregateInput = {
@@ -2232,6 +2284,20 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
@@ -2250,6 +2316,10 @@ export namespace Prisma {
 
   export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null
+  }
+
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -2315,6 +2385,17 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -2413,6 +2494,20 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedStringNullableFilter<$PrismaModel>
     _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
 

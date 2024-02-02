@@ -114,7 +114,8 @@ exports.Prisma.UserScalarFieldEnum = {
   age: 'age',
   gender: 'gender',
   profession: 'profession',
-  phoneNumber: 'phoneNumber'
+  phoneNumber: 'phoneNumber',
+  createdAt: 'createdAt'
 };
 
 exports.Prisma.SortOrder = {

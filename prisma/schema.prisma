@@ -22,4 +22,5 @@ model User {
   gender      Gender?
   profession  String?
   phoneNumber String?
+  createdAt   DateTime  @default(now())
 }

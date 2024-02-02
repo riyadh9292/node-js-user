@@ -2,7 +2,7 @@ import { createUserService, getUserByIdService, getUsersWithFieldsService } from
 
 const createUser = async (req, res) => {
   const { name, email, age, gender, profession, phoneNumber } = req.validatedUser;
-console.log(name, email, age, gender, profession, phoneNumber);
+  
   try {
     const newUser = await createUserService(
       name,
