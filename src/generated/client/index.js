@@ -159,6 +159,7 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
@@ -168,7 +169,8 @@ const config = {
     }
   },
   "inlineSchema": "Z2VuZXJhdG9yIGNsaWVudCB7CiAgcHJvdmlkZXIgPSAicHJpc21hLWNsaWVudC1qcyIKICBvdXRwdXQgICA9ICIuLi9zcmMvZ2VuZXJhdGVkL2NsaWVudCIKfQoKZGF0YXNvdXJjZSBkYiB7CiAgcHJvdmlkZXIgPSAicG9zdGdyZXNxbCIKICB1cmwgICAgICA9IGVudigiREFUQUJBU0VfVVJMIikKfQoKZW51bSBHZW5kZXIgewogIE1BTEUKICBGRU1BTEUKICBPVEhFUlMKfQoKbW9kZWwgVXNlciB7CiAgaWQgICAgICAgICAgSW50ICAgICBAaWQgQGRlZmF1bHQoYXV0b2luY3JlbWVudCgpKQogIG5hbWUgICAgICAgIFN0cmluZwogIGVtYWlsICAgICAgIFN0cmluZwogIGFnZSAgICAgICAgIEludD8KICBnZW5kZXIgICAgICBHZW5kZXI/CiAgcHJvZmVzc2lvbiAgU3RyaW5nPwogIHBob25lTnVtYmVyIFN0cmluZz8KfQo=",
-  "inlineSchemaHash": "84805743eb9786db04e4e800a185b6d526547595d7c268899acafa93bf380785"
+  "inlineSchemaHash": "84805743eb9786db04e4e800a185b6d526547595d7c268899acafa93bf380785",
+  "noEngine": false
 }
 
 const fs = require('fs')
