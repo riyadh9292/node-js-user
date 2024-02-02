@@ -4,6 +4,7 @@
   "description": "test project for Stibo DX Limited",
   "main": "index.js",
   "type": "module",
+  "postinstall": "npx prisma generate",
   "scripts": {
     "start": "npx prisma db push && npx prisma generate && node index.js",
     "dev": "nodemon index.js",
