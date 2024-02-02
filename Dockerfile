@@ -1,10 +1,20 @@
-FROM node:13-alpine
+# Use the official Node.js image with a specific version
+FROM node:16.13
 
-RUN mkdir -p /usr/src/app
+# Set the working directory
 WORKDIR /usr/src/app
 
-COPY . .
+# Copy package.json and package-lock.json to the working directory
+COPY package*.json ./
+
+# Install dependencies
 RUN npm install
 
+# Copy the rest of the application code to the working directory
+COPY . .
+
+# Expose the port your app will run on
 EXPOSE 3000
-CMD node ./bin/www
+
+# Command to run your application
+CMD ["npm", "start"]
