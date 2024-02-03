@@ -47,10 +47,9 @@ const getUsersWithFieldsService = async (
 	})
 }
 
-const deleteAllUsers = async (req, res) => {
+const deleteAllUsersService = async (req, res) => {
 	try {
-		await prisma.user.deleteMany() // Delete all records
-		res.status(204).end() // 204 No Content response
+		return prisma.user.deleteMany() // Delete all records
 	} catch (error) {
 		res.status(500).json({ error: error.message })
 	}
@@ -60,5 +59,5 @@ export {
 	createUserService,
 	getUserByIdService,
 	getUsersWithFieldsService,
-	deleteAllUsers
+	deleteAllUsersService
 }

@@ -37,7 +37,7 @@ Creates a new user with the provided data.
 
 **Endpoint:** POST /create-user
 
-**Example Request:**
+**Example Query:**
 
 ```bash
 curl --request POST \
@@ -47,7 +47,7 @@ curl --request POST \
     "name": "John Doe",
     "email": "john@example.com",
     "age": 25,
-    "gender": "Male",
+    "gender": "MALE",
     "profession": "Developer",
     "phoneNumber": "+123456789"
   }'
@@ -77,23 +77,18 @@ Fetch users with specific fields using GraphQL.
 **Example Request:**
 
 ```bash
-curl --request POST \
-  --url https://ethical-shannah-riyadh.koyeb.app/graphql \
-  --header 'Content-Type: application/json' \
-  --data '{
-    "query": "{
-      users(fields: [\"name\", \"email\", \"age\", \"profession\", \"createdAt\"], limit: 3, orderBy: [
-        { field: \"name\", direction: \"asc\" },
-        { field: \"createdAt\", direction: \"asc\" }
-      ]) {
-        name
-        email
-        age
-        createdAt
-        profession
-      }
-    }"
-  }'
+query {
+  users(fields: ["name", "email", "age", "profession", "createdAt"], limit: 3, orderBy: [
+    { field: "name", direction: "asc" },
+    { field: "createdAt", direction: "asc" },
+  ]) {
+    name
+    email
+    age
+    createdAt
+    profession
+  }
+}
 
 ```
 

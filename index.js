@@ -2,11 +2,14 @@ import dotenv from 'dotenv'
 import express from 'express'
 import bodyParser from 'body-parser'
 import { createHandler } from 'graphql-http/lib/use/express'
-import { createUser, getUser } from './controllers/userController.js'
+import {
+	createUser,
+	deleteAllUsers,
+	getUser
+} from './controllers/userController.js'
 import validateUserCreation from './middleware/validationMiddleware.js'
 import notFoundMiddleware from './middleware/notFoundMiddleware.js'
 import userSchema from './graphql/schema.js'
-import { deleteAllUsers } from './services/userService.js'
 
 dotenv.config()
 const app = express()
