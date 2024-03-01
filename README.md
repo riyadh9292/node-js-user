@@ -37,7 +37,7 @@ Creates a new user with the provided data.
 
 **Endpoint:** POST /create-user
 
-**Example Query:**
+**Example Request:**
 
 ```bash
 curl --request POST \
@@ -74,7 +74,7 @@ Fetch users with specific fields using GraphQL.
 
 **Behavior:** The GraphQL endpoint allows flexible data retrieval based on the provided query. Users can specify the fields they want and the criteria for sorting and limiting the results.
 
-**Example Request:**
+**Example Query:**
 
 ```bash
 query {
