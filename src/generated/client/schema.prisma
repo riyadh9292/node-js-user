@@ -15,12 +15,20 @@ enum Gender {
 }
 
 model User {
-  id          Int     @id @default(autoincrement())
-  name        String
-  email       String
-  age         Int?
-  gender      Gender?
-  profession  String?
-  phoneNumber String?
-  createdAt   DateTime  @default(now())
+  id               Int        @id @default(autoincrement())
+  username         String     @unique
+  email            String     @unique
+  password         String     // Hashed password
+  name             String?
+  profileImage     String?
+	video            String?
+	about            String?
+  age              Int?
+  gender           Gender?
+  profession       String?
+  phoneNumber      String?
+  createdAt        DateTime   @default(now())
+  updatedAt        DateTime   @updatedAt
+  lastLogin        DateTime?  // Track last login timestamp
+  profileViews     Int?        @default(0) // Total profile views count
 }

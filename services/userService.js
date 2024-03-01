@@ -3,21 +3,66 @@ import { prisma } from '../db/prisma.js'
 const createUserService = async (
 	name,
 	email,
+	username,
 	age,
 	gender,
 	profession,
-	phoneNumber
+	hashedPassword,
+	profileImage,
+	video,
+	about
 ) => {
 	return prisma.user.create({
 		data: {
 			name,
 			email,
+			username,
 			age,
 			gender,
 			profession,
-			phoneNumber
+			password: hashedPassword,
+			profileImage,
+			video,
+			about
 		}
 	})
+}
+
+const getUserByEmail = async (email) => {
+	try {
+		// Find user by email using Prisma
+		const user = await prisma.user.findUnique({
+			where: {
+				email
+			}
+		})
+
+		// Return the user object if found, otherwise return null
+		return user
+	} catch (error) {
+		// If any error occurs, throw an error
+		throw new Error('Error fetching user data')
+	}
+}
+
+const getAllUsers = async () => {
+	try {
+		const users = await prisma.user.findMany()
+		return users
+	} catch (error) {
+		throw new Error('Error fetching users')
+	}
+}
+
+const getUserDetailsById = async (userId) => {
+	try {
+		const user = await prisma.user.findUnique({
+			where: { id: +userId }
+		})
+		return user
+	} catch (error) {
+		throw new Error(error.message)
+	}
 }
 
 const getUserByIdService = async (userId) => {
@@ -59,5 +104,8 @@ export {
 	createUserService,
 	getUserByIdService,
 	getUsersWithFieldsService,
-	deleteAllUsersService
+	deleteAllUsersService,
+	getUserByEmail,
+	getAllUsers,
+	getUserDetailsById
 }
