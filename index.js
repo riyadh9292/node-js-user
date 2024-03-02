@@ -9,6 +9,7 @@ import {
 	deleteAllUsers,
 	getUser,
 	getUserDetails,
+	getUserProfile,
 	getUsers,
 	loginUser
 } from './controllers/userController.js'
@@ -31,6 +32,7 @@ app.post('/api/create-user', validateUserCreation, createUser)
 app.post('/api/sign-in', loginUser)
 // app.get('/api/users', checkCache, getAllUsers)
 app.get('/api/users', getUsers)
+app.get('/api/user/profile', authenticateJWT, getUserProfile)
 app.get('/api/user/:userId', authenticateJWT, getUserDetails)
 app.delete('/api/delete-all-users', deleteAllUsers)
 

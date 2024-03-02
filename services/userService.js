@@ -71,6 +71,27 @@ const getUserByIdService = async (userId) => {
 	})
 }
 
+const incrementProfileViews = async (userId) => {
+	try {
+		// Fetch the user
+		const user = await prisma.user.findUnique({
+			where: { id: +userId }
+		})
+
+		if (!user) {
+			throw new Error('User not found')
+		}
+
+		// Increment profileViews count
+		await prisma.user.update({
+			where: { id: +userId },
+			data: { profileViews: user.profileViews + 1 }
+		})
+	} catch (error) {
+		throw new Error(error.message)
+	}
+}
+
 const getUsersWithFieldsService = async (
 	fields,
 	limit = 10,
@@ -107,5 +128,6 @@ export {
 	deleteAllUsersService,
 	getUserByEmail,
 	getAllUsers,
-	getUserDetailsById
+	getUserDetailsById,
+	incrementProfileViews
 }

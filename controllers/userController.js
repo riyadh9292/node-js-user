@@ -9,7 +9,8 @@ import {
 	deleteAllUsersService,
 	getUserByEmail,
 	getAllUsers,
-	getUserDetailsById
+	getUserDetailsById,
+	incrementProfileViews
 } from '../services/userService.js'
 dotenv.config()
 
@@ -91,9 +92,27 @@ const getUsers = async (req, res) => {
 }
 
 const getUserDetails = async (req, res) => {
+	console.log('details is calling')
 	try {
 		const userId = req.params.userId
 		const user = await getUserDetailsById(userId)
+		// Increment profile views
+		await incrementProfileViews(userId)
+		if (!user) {
+			return res.status(404).json({ error: 'User not found' })
+		}
+		res.status(200).json(user)
+	} catch (error) {
+		res.status(500).json({ error: error.message })
+	}
+}
+
+const getUserProfile = async (req, res) => {
+	console.log('this one calling')
+	try {
+		const userEmail = req.user.email
+		console.log(userEmail, 'userEmail')
+		const user = await getUserByEmail(userEmail)
 		if (!user) {
 			return res.status(404).json({ error: 'User not found' })
 		}
@@ -151,5 +170,6 @@ export {
 	deleteAllUsers,
 	loginUser,
 	getUsers,
-	getUserDetails
+	getUserDetails,
+	getUserProfile
 }

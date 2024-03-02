@@ -1,14 +1,17 @@
 {
   "name": "nodejs-user-api",
   "version": "1.0.0",
-  "description": "test project for Stibo DX Limited",
+  "description": "Opedia Technologies Limited",
   "main": "index.js",
   "type": "module",
   "postinstall": "npx prisma generate",
   "scripts": {
     "start": "npx prisma db push && npx prisma generate && node index.js",
     "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prepare": "husky"
   },
   "author": "T. H. Riyadh",
   "license": "ISC",
@@ -30,6 +33,20 @@
     "validator": "^13.11.0"
   },
   "devDependencies": {
-    "nodemon": "^3.0.3"
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "husky": "^9.0.11",
+    "nodemon": "^3.0.3",
+    "prettier": "^3.2.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js}": "eslint --fix",
+    "*.{js,md}": "prettier --write"
   }
 }
