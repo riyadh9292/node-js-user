@@ -1,6 +1,6 @@
-# Stibo Dx Limited Test Project
+# User Project
 
-This is a Node.js application built as a test project for Stibo Dx Limited. It includes four endpoints for creating users, retrieving a user by ID, fetching users with specific fields and delete all users.
+It includes four endpoints for creating users, retrieving a user by ID, fetching users with specific fields and delete all users.
 
 ## Technologies Used
 
@@ -8,6 +8,7 @@ This is a Node.js application built as a test project for Stibo Dx Limited. It i
 - Express.js
 - Prisma
 - PostgreSQL
+- Redis
 
 ## Live Demo
 
