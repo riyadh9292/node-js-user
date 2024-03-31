@@ -1,7 +1,7 @@
 {
   "name": "nodejs-user-api",
   "version": "1.0.0",
-  "description": "Opedia Technologies Limited",
+  "description": "User api",
   "main": "index.js",
   "type": "module",
   "postinstall": "npx prisma generate",
